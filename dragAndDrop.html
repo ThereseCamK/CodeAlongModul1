@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag And Drop </title>
+    <style>
+    #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+      }
+      .container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.box {
+  border: 3px solid #666;
+  background-color: #ddd;
+  border-radius: .5em;
+  padding: 10px;
+  cursor: move;
+}
+.box.over {
+  border: 3px dotted #666;
+}
+      </style>
+
+
+</head>
+
+
+<body>
+    <!-- <div id="storyOutput"></div> -->
+    
+    <div class="container">
+        <div draggable="true" class="box">A</div>
+        <div draggable="true" class="box">B</div>
+        <div draggable="true" class="box">C</div>
+      </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+function handleDragStart(e) {
+  this.style.opacity = '0.4';
+
+  e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
+}
+
+function handleDragEnd(e) {
+  this.style.opacity = '1';
+
+  items.forEach(function (item) {
+    item.classList.remove('over');
+  });
+}
+
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+
+  return false;
+}
+
+function handleDragEnter(e) {
+  this.classList.add('over');
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('over');
+}
+
+let items = document.querySelectorAll('.container .box');
+items.forEach(function(item) {
+  item.addEventListener('dragstart', handleDragStart, false);
+  item.addEventListener('dragover', handleDragOver, false);
+  item.addEventListener('dragenter', handleDragEnter, false);
+  item.addEventListener('dragleave', handleDragLeave, false);
+  item.addEventListener('dragend', handleDragEnd, false);
+});
+});
+
+function handleDrop(e) {
+  e.stopPropagation();
+
+    if (dragSrcEl !== this) {
+      dragSrcEl.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+
+    return false;
+  }
+    // const output = document.getElementById("storyOutput"); 
+
+    // let allTheWords = ["Liten", "Snodig", "Temperert", "Baklengs", "Blå"];
+
+
+    //     let word1 =`  test`;
+    //     let word2 =` test2 `;
+
+
+
+    // let firstWord =  "___________";
+    // let secondWord = "___________";
+    // let thirdWord = "___________";
+    // let fourthWord = "___________";
+    // let fifthWord = "___________";
+    
+    // showStory();
+    // function showStory(){
+    //     output.innerHTML= `
+    //     Det var en gang en <tt id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">${firstWord}</tt> 
+    //     som var både <tt id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">${secondWord}</tt>
+    //     og ${thirdWord} - men dette er jo helt ${fourthWord} og totalt
+    //      ${fifthWord} <br>
+         
+    //         <br>
+           
+    //     <div id="drag1" draggable="true" ondragstart="drag(event)" width="36" height="69"> ${word1}</div><br>
+    //     <div id="drag2" draggable="true" ondragstart="drag(event)" width="36" height="69"> ${word2}</div>
+
+    //     `;
+    // }
+
+
+//     function allowDrop(ev) {
+//   ev.preventDefault();
+// }
+
+// function drag(ev) {
+//   ev.dataTransfer.setData("text", ev.target.id);
+// }
+
+// function drop(ev) {
+//   ev.preventDefault();
+//   var data = ev.dataTransfer.getData("text");
+//   ev.target.appendChild(document.getElementById(data));
+//           firstWord = word1;
+//           secondWord = word2;
+
+//           word2 = '';
+//           word1 = '';
+//          showStory();
+// }
+    // function ranomizeArray(){
+    //     let shuffled = allTheWords
+    //     .map((a) => ({sort: Math.random(), value: a}))
+    //     .sort((a, b) => a.sort - b.sort)
+    //     .map((a) => a.value)
+        
+    //     firstWord = shuffled[0];
+    //     secondWord = shuffled[1];
+    //     thirdWord = shuffled[2];
+    //     fourthWord = shuffled[3];
+    //     fifthWord = shuffled[4];
+    //     showStory();
+    // }
+    
+
+ 
+
+</script>
+
+
+</html>

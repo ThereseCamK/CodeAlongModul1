@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.14.1.js"></script>
+    <script src="controller.js"></script>
+  <script>
+      function show(){}
+
+
+    //   var number = 30;
+    //   var input;
+
+
+ 
+  
+  
+      QUnit.test('should add two numbers', function(assert) {
+        var detteGirProgrammet = add(1 , 2);
+        var detteTrorJeg = 3;
+        // assert.equal(add(1, 1), 2);
+        assert.equal(detteGirProgrammet, detteTrorJeg, detteTrorJeg)
+      });
+
+      QUnit.test('between zero and hundred', function(assert) {
+        number = 100;
+        
+        var detteGirProgrammet = checkIfBetweenZeroAndHundred();
+        var detteTrorJeg = true;
+
+        assert.equal(detteGirProgrammet, detteTrorJeg, number)
+      });
+
+      QUnit.test('sjekk hvilket tall det er ', function(assert) {
+       
+        sjekkOmTall(5);
+        var detteGirProgrammet = input;
+        var detteTrorJeg = 5;
+
+        assert.equal(detteGirProgrammet, detteTrorJeg, input)
+      });
+  
+  </script>
+</body>

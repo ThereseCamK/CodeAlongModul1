@@ -1,0 +1,89 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+        .box{
+            /* height: 50px;
+            width: 50px;  */
+            font-size: 100px;
+        }
+        .odd{
+            background-color: darkgrey;
+        }
+        .even{
+            background-color: hotpink;
+        }
+        .gridbox{
+            display: grid;
+            height: 600px;
+            width: 600px;
+            grid-template-columns: auto auto auto;
+            /* grid-template-rows: auto auto auto; */
+        }
+        
+        
+    </style>
+        
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        //hjelpevariabel
+        const appDiv = document.getElementById('app');
+
+        //model
+        var test = "";
+              //     0  1  2   3  4  5  6  7  8
+        var liste = ["","","","","","","","",""];
+
+        //view
+        show();
+        function show(){
+            
+         let html = `<div class="gridbox">
+            <div onclick="tictac(0)" class="box odd">${liste[0]}</div> 
+            <div onclick="tictac(1)" class="box even">${liste[1]}</div>  
+            <div onclick="tictac(2)" class="box odd">${liste[2]}</div>  
+            
+            <div onclick="tictac(3)" class="box even">${liste[3]}</div>  
+            <div onclick="tictac(4)" class="box odd">${liste[4]}</div>  
+            <div onclick="tictac(5)" class="box even">${liste[5]}</div>  
+
+            <div onclick="tictac(6)" class="box odd">${liste[6]}</div>  
+            <div onclick="tictac(7)" class="box even">${liste[7]}</div>  
+            <div onclick="tictac(8)" class="box odd">${liste[8]}</div>  
+             </div>
+       `
+        appDiv.innerHTML = html; };  
+        
+
+        //controller
+        function tictac(posisjonIArray){
+               liste[posisjonIArray] = "x"; 
+               computer();
+            show();           
+      
+        }
+
+        function computer(){
+            var random = Math.floor(Math.random() * 9); 
+            if(liste[random] == "") liste[random] = "o"; 
+            
+            else{
+                computer();
+            }
+            show();
+           
+        }
+
+    </script>
+</body>
+</html>

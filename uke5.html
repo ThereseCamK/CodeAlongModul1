@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="controller.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+      var app =  document.getElementById('app');
+        //model
+
+        var input = '....';
+        var input2 = '..'
+        //view
+        show()
+        function show(){
+
+
+            hvasomheslt = `
+            <h1> CodeAlong Uke 5 </h1>
+            <input placeholder="fornavn" onchange="henterUtTekstFornavn(this.value)"> </input>
+            <input placeholder="etternavn" onchange="henterUtTekstEtternavn(this.value)"> </input>
+          
+            <div>Fornavn: ${input} <br> Etternavn: ${input2} </div>
+            `;
+
+            app.innerHTML = hvasomheslt;
+        }
+
+        // hvasomheslt = `
+        //     <h1> CodeAlong Uke 5 </h1>
+        //     <input placeholder="fornavn" onchange="firstname = this.value"> </input>
+        //     <input placeholder="etternavn" onchange="lastname = this.value"> </input>
+        //     <button onclick="sjekkOmTall()"> legg til navn</button>
+          
+        //     <div>${firstname} <br> ${lastname} </div>
+        //     `;
+
+        //     app.innerHTML = hvasomheslt;
+        // }
+
+       // sjekkOmTall(3);
+        //controller
+
+        
+
+    
+    </script>
+</body>
+</html>
