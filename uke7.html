@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .circle{
+            border-radius: 50%;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app"></div>
+    
+
+    <script>
+        let appDiv = document.getElementById('app');
+        let radius =[40,70,100,20,80, 500, 234,];
+        let colors = ["Red", "Blue", "HotPink", "Green"];
+        
+
+        // const random = Math.floor(Math.random() * months.length);
+        //     console.log(random, months[random]);
+
+        
+       
+
+        show()
+        function show(){
+            randomPos();
+            let html= '<button onclick="show()">shuffle</button>';
+            for(let noe of radius){
+                html += sirkelLager(noe);
+                
+                }
+                appDiv.innerHTML = html;
+        
+        }
+       
+        // for(let noe in alt){
+
+        // }
+        function sirkelLager(spesifikRadius) {
+           return `<div class="circle" 
+           style="height:${spesifikRadius}px; 
+           width: ${spesifikRadius}px;
+           border:  ${randomColor()} 6px solid;" > </div>`
+        }
+        function randomPos(){
+            // Math.floor(Math.random()
+            // var item = radius[Math.floor(Math.random() * radius.length)];
+            // console.log(item);
+            const shuffledArray = radius.sort((a, b) => 0.5 - Math.random());
+       
+        }
+
+        function randomColor(){
+              return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+    </script>
+</body>
+</html>
