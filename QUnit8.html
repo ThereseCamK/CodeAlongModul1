@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
+<script src="uke8.js"></script>
+  <script>
+    
+
+   function show(){}
+
+      QUnit.test('person blir lagt til', function(assert) {
+
+        model.inputs.navn = 'Anita';
+        model.inputs.adresse = 'på taket 8';
+        model.inputs.bosted = 'her og der';
+        addPerson();
+        assert.equal(model.personer[2].navn, 'Anita');
+       
+      });
+
+      QUnit.test('siste person blir fjernet', function(assert) {
+
+        removePerson();
+        assert.equal(model.personer.length, 2);
+
+        });
+
+        QUnit.test('valgt person blir fjernet', function(assert) {
+        
+            dennePersonen(1);
+            assert.equal(model.personer[0].navn,  'Therese');
+
+        });
+  
+  </script>
+</body>
